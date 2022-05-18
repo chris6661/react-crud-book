@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Book = ({
   id,
@@ -11,7 +11,7 @@ const Book = ({
   date,
   handleRemoveBook
 }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <Card style={{ width: '18rem' }} className="book">
@@ -23,7 +23,7 @@ const Book = ({
           <div>Price: {price} </div>
           <div>Date: {new Date(date).toDateString()}</div>
         </div>
-        <Button variant="primary" onClick={() => history.push(`/edit/${id}`)}>
+        <Button variant="primary" onClick={() => navigate.push(`/edit/${id}`)}>
           Edit
         </Button>{' '}
         <Button variant="danger" onClick={() => handleRemoveBook(id)}>
